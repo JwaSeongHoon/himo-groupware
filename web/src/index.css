@@ -1,0 +1,90 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-brand: #1d4f9c;
+  --color-brand-dark: #163d78;
+  --color-brand-light: #e8effa;
+  --color-alert: #f07c12;
+  --color-head: #d6d6d6;
+  --color-line: #c9c9c9;
+  --color-sel: #cfe0fb;
+  --font-sans: 'Malgun Gothic', '맑은 고딕', 'Apple SD Gothic Neo', system-ui, sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-size: 13px;
+  color: #222;
+  background: #f3f4f6;
+}
+
+@layer components {
+  /* 버튼 */
+  .btn {
+    @apply inline-flex items-center gap-1 rounded border border-gray-400 bg-linear-to-b from-white to-gray-100 px-3 py-1 text-[13px] whitespace-nowrap text-gray-800 shadow-xs hover:from-gray-50 hover:to-gray-200 focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-brand disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply border-brand from-brand to-brand-dark text-white hover:from-brand-dark hover:to-brand-dark;
+  }
+  .btn-danger {
+    @apply border-red-600 from-red-500 to-red-600 text-white hover:from-red-600 hover:to-red-700;
+  }
+  .btn-sm {
+    @apply px-2 py-0.5 text-xs;
+  }
+
+  /* 입력 */
+  .input {
+    @apply h-7 rounded-sm border border-gray-400 bg-white px-2 text-[13px] focus:border-brand focus:outline-1 focus:outline-brand disabled:bg-gray-100 disabled:text-gray-500;
+  }
+  .input-invalid {
+    @apply border-red-500;
+  }
+  textarea.input {
+    @apply h-auto py-1.5;
+  }
+
+  /* 조밀한 표 (CM-04) */
+  .grid-wrap {
+    @apply overflow-auto border border-line bg-white;
+  }
+  .data-grid {
+    @apply w-full border-collapse text-[13px];
+  }
+  .data-grid thead th {
+    @apply sticky top-0 z-10 border-r border-b border-r-[#b9c6dc] border-b-line bg-head px-2 py-1.5 font-semibold whitespace-nowrap text-gray-800;
+  }
+  .data-grid tbody td {
+    @apply border-b border-gray-200 px-2 py-[5px] whitespace-nowrap;
+  }
+  .data-grid tbody tr {
+    @apply cursor-pointer outline-none hover:bg-gray-50 focus-visible:bg-brand-light;
+  }
+  .data-grid tbody tr[aria-selected='true'] {
+    @apply bg-sel hover:bg-sel;
+  }
+
+  /* 조회 조건 영역 */
+  .filter-bar {
+    @apply flex flex-wrap items-center gap-x-4 gap-y-2 border border-line bg-[#f7f8fa] px-3 py-2;
+  }
+  .filter-bar label {
+    @apply flex items-center gap-1.5 font-semibold text-gray-700;
+  }
+
+  /* 상세 정보 표 */
+  .info-table {
+    @apply w-full border-collapse border border-line text-[13px];
+  }
+  .info-table th {
+    @apply w-32 border border-line bg-[#eef1f6] px-3 py-1.5 text-left font-semibold whitespace-nowrap text-gray-700;
+  }
+  .info-table td {
+    @apply border border-line bg-white px-3 py-1.5;
+  }
+}

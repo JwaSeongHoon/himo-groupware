@@ -1,0 +1,8 @@
+node_modules/
+dist/
+*.local
+.tmp-dist-real/
+*.tsbuildinfo
+
+# 원본 자료(실명 포함) — 로컬 전용
+docs/
